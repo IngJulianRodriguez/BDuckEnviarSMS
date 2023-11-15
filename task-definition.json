@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:502711948570:task-definition/bduck_enviarsms:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:502711948570:task-definition/bduck_enviarsms_task:1",
     "containerDefinitions": [
         {
             "name": "bduck_enviarsms",
-            "image": "public.ecr.aws/e8g3h2x3/bduck_enviarsms",
+            "image": "502711948570.dkr.ecr.us-east-2.amazonaws.com/bduck_enviarsms",
             "cpu": 0,
             "portMappings": [
                 {
@@ -24,7 +24,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/bduck_enviarsms",
+                    "awslogs-group": "/ecs/bduck_enviarsms_task",
                     "awslogs-region": "us-east-2",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -32,7 +32,8 @@
             }
         }
     ],
-    "family": "bduck_enviarsms",
+    "family": "bduck_enviarsms_task",
+    "taskRoleArn": "arn:aws:iam::502711948570:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::502711948570:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
@@ -46,7 +47,16 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -72,7 +82,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-11-15T00:22:22.154Z",
-    "registeredBy": "arn:aws:iam::502711948570:root",
+    "registeredAt": "2023-11-15T13:53:34.886Z",
+    "registeredBy": "arn:aws:iam::502711948570:user/bankduckadmin",
     "tags": []
 }
