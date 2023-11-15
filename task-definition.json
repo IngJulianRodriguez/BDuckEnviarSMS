@@ -1,0 +1,88 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:502711948570:task-definition/bduck_enviarsms_task:1",
+    "containerDefinitions": [
+        {
+            "name": "bduck_enviarsms",
+            "image": "502711948570.dkr.ecr.us-east-2.amazonaws.com/bduck_enviarsms",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "bduck_enviarsms-7083-tcp",
+                    "containerPort": 7083,
+                    "hostPort": 7083,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/bduck_enviarsms_task",
+                    "awslogs-region": "us-east-2",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            }
+        }
+    ],
+    "family": "bduck_enviarsms_task",
+    "taskRoleArn": "arn:aws:iam::502711948570:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::502711948570:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2023-11-15T13:53:34.886Z",
+    "registeredBy": "arn:aws:iam::502711948570:user/bankduckadmin",
+    "tags": []
+}
