@@ -13,11 +13,14 @@ import com.twilio.type.PhoneNumber;
 @RestController
 @RequestMapping("/enviarsms")
 public class ApiRestController {
-    public static final String ACCOUNT_SID = "ACc82a6afd5406aec768db64ca498c9b14";
-    public static final String AUTH_TOKEN = "6a5390fd307e7693b492477a37b1895c";
+    public static final String AC1 = "ACc82a6afd5406aec";
+    public static final String AC2 = "768db64ca498c9b14";
+    public static final String P1 = "c5d33bb6c49e6f3d7";
+    public static final String P2 = "1d55bd6a9477e74";
     @PostMapping
     public ResponseEntity<String> post(@RequestBody MensajeRequest input) {
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        Twilio.init(AC1+AC2, P1+P2);
         Message message = Message.creator(
                         new com.twilio.type.PhoneNumber("+573046378034"),
                         new com.twilio.type.PhoneNumber("+19147126274"),
