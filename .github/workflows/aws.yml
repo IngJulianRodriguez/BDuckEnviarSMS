@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: us-east-2                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: public.ecr.aws/e8g3h2x3/enviarsms:latest          # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: enviarsms          # set this to your Amazon ECR repository name
   ECS_SERVICE: enviarsms                # set this to your Amazon ECS service name
   ECS_CLUSTER: bankduck-cluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
@@ -73,6 +73,7 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build -t $ECR_REPOSITORY .
-        docker push $ECR_REPOSITORY
-        echo "image=$ECR_REPOSITORY" >> $GITHUB_OUTPUT
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
