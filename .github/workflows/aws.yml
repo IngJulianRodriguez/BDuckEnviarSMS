@@ -74,5 +74,5 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         docker build -t $ECR_REPOSITORY .
-        docker push $ECR_REPOSITORY:
+        docker push $ECR_REPOSITORY
         echo "image=$ECR_REPOSITORY" >> $GITHUB_OUTPUT
